@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d1a">
+  <meta name="description" content="ORBITECH AI MOVIE WORLD — original AI movie concepts, production pipeline and movie-only streaming dashboard.">
+  <title>ORBITECH AI MOVIE WORLD</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="data/movies.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-mark"><span class="brand-icon">◈</span><div><strong>ORBITECH</strong><small>AI MOVIE WORLD</small></div></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="home">⌂ <span>Discover</span></button>
+        <button class="nav-item" data-view="catalog">▤ <span>All Movies</span><b>10,000</b></button>
+        <button class="nav-item" data-view="channels">▦ <span>Movie Channels</span></button>
+        <button class="nav-item" data-view="favorites">☆ <span>My Favorites</span></button>
+        <button class="nav-item" data-view="production">✦ <span>AI Production Studio</span></button>
+        <button class="nav-item" data-view="admin">⚙ <span>Admin & Settings</span></button>
+      </nav>
+      <div class="sidebar-note"><span class="status-dot"></span> Catalog engine ready <small>Production services require setup</small></div>
+      <div class="sidebar-footer">Designed by ORBITECH<br><small>Original concepts • Movie-only</small></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb">ORBITECH <span>/</span> <strong id="pageCrumb">Discover</strong></div>
+        <div class="top-actions">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search titles, genres, stories…" aria-label="Search movies"></label>
+          <button class="avatar" title="Admin profile">O</button>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-pip"></span> ORIGINAL AI CINEMA UNIVERSE</div>
+          <h1>Stories without<br><em>boundaries.</em></h1>
+          <p>Discover original movie concepts and manage the pipeline that turns scripts into complete, customized films.</p>
+          <div class="hero-actions"><button class="btn btn-primary" id="exploreBtn">Explore movies <span>→</span></button><button class="btn btn-glass" id="watchDemoBtn">▶ Watch demo preview</button><button class="btn btn-glass" data-open-view="production">Open AI Studio</button></div>
+          <div class="hero-stats"><div><strong id="totalCount">10,000</strong><span>Catalog entries</span></div><div><strong id="completedCount">0</strong><span>Completed films</span></div><div><strong>30+ min</strong><span>Runtime target</span></div></div>
+        </div>
+        <div class="hero-art" aria-label="Abstract cinematic artwork"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-frame"><div class="frame-sun"></div><div class="frame-mountain mountain-one"></div><div class="frame-mountain mountain-two"></div><div class="frame-caption">A NEW WORLD<br><small>IS WAITING</small></div></div><div class="floating-tag">✦ AI ORIGINALS</div></div>
+      </section>
+
+      <section class="content-section" id="dashboardSection">
+        <div class="section-heading"><div><div class="eyebrow muted">YOUR CINEMA UNIVERSE</div><h2 id="sectionTitle">Featured concepts</h2></div><button class="text-button" data-open-view="catalog">Browse catalog <span>→</span></button></div>
+        <div class="filter-row" id="genreFilters"></div>
+        <div class="movie-grid" id="movieGrid"></div>
+        <div class="load-row"><span id="resultCount">Showing featured titles</span><button class="btn btn-outline" id="loadMoreBtn">Load more titles</button></div>
+      </section>
+
+      <section class="content-section hidden" id="channelsSection">
+        <div class="section-heading"><div><div class="eyebrow muted">CURATED STREAMING LANES</div><h2>Movie channels</h2></div></div>
+        <p class="section-intro">These are on-demand movie collections, not live television streams. Add completed films to a channel when their rendered master is ready.</p>
+        <div class="channel-grid" id="channelGrid"></div>
+      </section>
+
+      <section class="content-section hidden" id="productionSection">
+        <div class="section-heading"><div><div class="eyebrow muted">FROM IDEA TO FINAL CUT</div><h2>AI production studio</h2></div><span class="pill pill-warning">Setup required</span></div>
+        <div class="notice"><strong>Production honesty:</strong> this ZIP includes the production workflow and job tracker. It does not contain 10,000 rendered films. Connect authorized AI video, voice, music and storage services on a secure backend before submitting real render jobs. Never put secret API keys in browser JavaScript.</div>
+        <div class="studio-layout">
+          <form class="panel studio-form" id="productionForm">
+            <h3>Create a production brief</h3>
+            <label>Movie title<input id="prodTitle" required maxlength="100" placeholder="Enter a working title"></label>
+            <div class="two-col"><label>Genre<select id="prodGenre"><option>Science Fiction</option><option>Action & Adventure</option><option>African Cinema</option><option>Drama</option><option>Romance</option><option>Comedy</option><option>Horror & Thriller</option><option>Fantasy</option><option>Animation & Family</option><option>Mystery & Crime</option><option>Documentary</option><option>Historical Epic</option></select></label>
+            <label>Target runtime<select id="prodRuntime"><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60" selected>60 minutes</option><option value="90">90 minutes</option><option value="120">120 minutes</option></select></label></div>
+            <label>Language<select id="prodLanguage"><option>English</option><option>Nigerian Pidgin</option><option>Yoruba</option><option>Igbo</option><option>Hausa</option><option>French</option><option>Arabic</option><option>Spanish</option><option>Hindi</option><option>Custom</option></select></label>
+            <label>Story / customization brief<textarea id="prodBrief" rows="4" placeholder="Characters, setting, tone, visual style, audience, ending…"></textarea></label>
+            <div class="check-line"><input type="checkbox" id="rightsCheck" required><label for="rightsCheck">I have rights to any supplied assets and will use licensed or original voices, music and visual references.</label></div>
+            <button class="btn btn-primary full-width" type="submit">Create production job <span>→</span></button>
+            <p class="form-footnote">Creates a local planning job only. Rendering begins after a backend provider is configured.</p>
+          </form>
+          <div class="panel pipeline-panel"><h3>Production pipeline</h3><p class="muted-text">Each completed movie should pass every stage before it is marked ready.</p>
+            <div class="pipeline-step"><span class="step-number">01</span><div><strong>Story & screenplay</strong><small>Outline, scenes, dialogue, continuity</small></div><span class="step-state">Plan</span></div>
+            <div class="pipeline-step"><span class="step-number">02</span><div><strong>Storyboard & shot list</strong><small>Visual direction, shot duration, prompts</small></div><span class="step-state">Plan</span></div>
+            <div class="pipeline-step"><span class="step-number">03</span><div><strong>Video & character generation</strong><small>Generate short clips and maintain consistency</small></div><span class="step-state">Provider</span></div>
+            <div class="pipeline-step"><span class="step-number">04</span><div><strong>Voice, music & sound</strong><small>Licensed synthesis, mix and subtitles</small></div><span class="step-state">Provider</span></div>
+            <div class="pipeline-step"><span class="step-number">05</span><div><strong>Edit, render & QA</strong><small>Join clips, verify runtime ≥ 30 min, review rights</small></div><span class="step-state">Backend</span></div>
+            <div class="pipeline-step"><span class="step-number">06</span><div><strong>Publish to movie channel</strong><small>Store master, poster, captions and metadata</small></div><span class="step-state">Review</span></div>
+            <div class="runtime-meter"><div><span>Minimum final runtime</span><strong>30:00</strong></div><div class="meter-track"><span></span></div><small>Only verified rendered masters should be labeled “Completed”.</small></div>
+          </div>
+        </div>
+        <div class="panel jobs-panel"><div class="section-heading compact"><div><h3>Production jobs</h3><p class="muted-text">Saved in this browser for this prototype.</p></div><button class="text-button" id="exportJobsBtn">Export jobs JSON ↓</button></div><div id="jobsList" class="jobs-list"></div></div>
+      </section>
+
+      <section class="content-section hidden" id="adminSection">
+        <div class="section-heading"><div><div class="eyebrow muted">CONTROL ROOM</div><h2>Admin & settings</h2></div></div>
+        <div class="admin-stats" id="adminStats"></div>
+        <div class="admin-grid">
+          <div class="panel"><h3>Catalog tools</h3><p class="muted-text">The 10,000 entries are generated as distinct fictional concepts with metadata. They are not completed movies.</p><button class="btn btn-outline full-width" id="exportCatalogBtn">Export full catalog JSON</button><button class="btn btn-outline full-width" id="exportM3uBtn">Export completed-film M3U</button></div>
+          <div class="panel"><h3>Provider configuration</h3><p class="muted-text">Connect through your server-side API. Keep keys in environment variables and implement authentication, quotas, job callbacks and storage access control.</p><label>Backend API base URL<input id="apiBase" placeholder="https://your-domain.example/api"></label><button class="btn btn-primary full-width" id="saveConfigBtn">Save local endpoint</button><p class="form-footnote">This saves the endpoint in local storage only; it does not validate or call it.</p></div>
+          <div class="panel"><h3>Content governance</h3><ul class="clean-list"><li>Use original or properly licensed source assets.</li><li>Record consent and rights for voices and likenesses.</li><li>Moderate generated content before publication.</li><li>Keep private API keys off the client.</li><li>Verify actual file duration before publishing.</li></ul></div>
+        </div>
+      </section>
+
+      <footer class="site-footer"><span>◈ ORBITECH AI MOVIE WORLD</span><span>Catalog concepts are not finished films.</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="movieModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal panel"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="modal-poster" id="modalPoster"></div><div class="modal-body"><div class="eyebrow muted" id="modalGenre"></div><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="modal-meta" id="modalMeta"></div><div class="preview-label"><span class="live-pip"></span> PLAYABLE DEMO PREVIEW <small>30 seconds · sample reel, not this full movie</small></div><video id="demoVideo" class="demo-video" controls playsinline preload="metadata" muted poster="assets/video/demo-poster.svg"><source src="assets/video/orbitech-demo-preview.mp4" type="video/mp4">Your browser cannot play this video. Please use a current browser.</video><p class="video-help">Use the video controls to play, pause, seek, or unmute the demo.</p><div class="modal-actions"><button class="btn btn-primary" id="favoriteToggle">☆ Add to favorites</button><button class="btn btn-outline" id="productionFromMovie">Create production job</button></div><div class="notice small-notice" id="playbackNotice">This is a concept entry. The playable clip is a demo preview; no full-length master is attached yet.</div></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
