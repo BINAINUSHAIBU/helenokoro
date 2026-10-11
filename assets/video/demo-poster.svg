@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080d24"/><stop offset=".55" stop-color="#28265c"/><stop offset="1" stop-color="#146c73"/></linearGradient></defs>
+  <rect width="1280" height="720" fill="url(#bg)"/><circle cx="960" cy="180" r="125" fill="#8ce7df" opacity=".16"/><path d="M0 600 270 390 430 520 700 290 1000 520 1160 400 1280 470V720H0Z" fill="#101a34"/><text x="640" y="305" fill="#fff" font-family="sans-serif" font-size="52" text-anchor="middle" font-weight="700">ORBITECH AI MOVIE WORLD</text><text x="640" y="370" fill="#8ce7df" font-family="sans-serif" font-size="27" text-anchor="middle">PLAYABLE DEMO PREVIEW</text><text x="640" y="425" fill="#ffd49a" font-family="sans-serif" font-size="20" text-anchor="middle">30 SECONDS · SAMPLE REEL</text>
+</svg>

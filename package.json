@@ -1,0 +1,12 @@
+{
+  "name": "orbitech-ai-movie-world",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Movie-only AI concept catalog with playable cinematic preview, movie concept catalog and production orchestration starter",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
